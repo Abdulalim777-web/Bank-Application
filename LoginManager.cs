@@ -136,7 +136,8 @@ namespace Banking_Application
         public void CheckBalance(string accountUser ,string password)
         {
             var account = Accounts.FirstOrDefault(a => a.Username == accountUser);
-            var passcode  = Accounts.FirstOrDefault(a => a.Username == password);
+            // just so you know this is bad i fixed it the ux is bad i keep entering password and username
+            var passcode  = Accounts.FirstOrDefault(a => a.Password == password);
             if (account != null && passcode != null)
             {
                 DateTime checkTime = DateTime.Now;
@@ -215,7 +216,7 @@ namespace Banking_Application
         public void Transactions(string accountUser, string transactionpassword)
         {
             var account = Accounts.FirstOrDefault(a => a.Username == accountUser);
-            var passcode  = Accounts.FirstOrDefault(a => a.Username == transactionpassword);
+            var passcode  = Accounts.FirstOrDefault(a => a.Password == transactionpassword);
             if (account != null && passcode != null)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -278,7 +279,7 @@ namespace Banking_Application
 
         public bool VerifyPassword(string username , string password)
         {
-            var account = Accounts.FirstOrDefault(a => a.Username.ToUpper() == username.ToUpper());
+            var account = Accounts.FirstOrDefault(a => a.Username == username);
             return account != null && account.Password == password;
         }
     }
