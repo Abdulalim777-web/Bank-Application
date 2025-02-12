@@ -14,7 +14,7 @@ namespace Banking_Application
             try
             {
                 Console.Write("Enter Account Username: ");
-                string usernamecheck = Console.ReadLine()!.ToUpper();
+                string usernamecheck = Console.ReadLine()!;
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.Write("Enter Password: ");
                 string passwordcheck = ReadPassword();
@@ -43,7 +43,9 @@ namespace Banking_Application
                     {
                         case "1":
                             Console.Write("Enter Account username: ");
-                            string username = Console.ReadLine()!.ToUpper();
+                            // why are you converting to upper it is giving issues because of case sensitivity
+                           // and also your code does not check if a user wih that username already exist 
+                            string username = Console.ReadLine()!;
                             Console.Write("Enter Password: ");
                             string password = ReadPassword();
                             if (_loginManager.VerifyPassword(username, password))
@@ -62,13 +64,13 @@ namespace Banking_Application
 
                         case "2":
                             Console.Write("Enter From Account user: ");
-                            string fromAccountuser = Console.ReadLine()!.ToUpper();
+                            string fromAccountuser = Console.ReadLine()!;
                             Console.Write("Enter Password: ");
                             string fromPassword = ReadPassword();
                             if (_loginManager.VerifyPassword(fromAccountuser, fromPassword))
                             {
                                 Console.Write("Enter To Account user: ");
-                                string toAccountUser = Console.ReadLine()!.ToUpper();
+                                string toAccountUser = Console.ReadLine()!;
                                 Console.Write("Enter Amount to Transfer: ");
                                 decimal transferAmount = decimal.Parse(Console.ReadLine()!);
                                 _loginManager.TransferMoney(fromAccountuser, fromPassword, toAccountUser, transferAmount);
@@ -83,7 +85,7 @@ namespace Banking_Application
 
                         case "3":
                             Console.Write("Enter Account User: ");
-                            string withdrawAccountuser = Console.ReadLine()!.ToUpper();
+                            string withdrawAccountuser = Console.ReadLine()!;
                             Console.Write("Enter Password: ");
                             string withdrawPassword = ReadPassword();
                             if (_loginManager.VerifyPassword(withdrawAccountuser, withdrawPassword))
@@ -102,7 +104,7 @@ namespace Banking_Application
 
                         case "4":
                             Console.Write("Enter Account Username: ");
-                            string checkBalanceAccountUser = Console.ReadLine()!.ToUpper();
+                            string checkBalanceAccountUser = Console.ReadLine()!;
                             Console.Write("Enter Password: ");
                             string checkBalancePassword = ReadPassword();
                             if (_loginManager.VerifyPassword(checkBalanceAccountUser, checkBalancePassword))
@@ -119,7 +121,7 @@ namespace Banking_Application
 
                         case "5":
                             Console.Write("Enter Account Username: ");
-                            string receiptAccountUser = Console.ReadLine()!.ToUpper();
+                            string receiptAccountUser = Console.ReadLine()!;
                             Console.Write("Enter password:");
                             string recieptpassword = ReadPassword();
                             if (_loginManager.VerifyPassword(receiptAccountUser, recieptpassword))
@@ -136,7 +138,7 @@ namespace Banking_Application
 
                         case "6":
                             Console.Write("Enter Account Username: ");
-                            string resetAccountUser = Console.ReadLine()!.ToUpper();
+                            string resetAccountUser = Console.ReadLine()!;
                             Console.Write("Enter old password:");
                             string formalpassword = ReadPassword();
                             Console.Write("Enter New Password: ");
@@ -156,7 +158,7 @@ namespace Banking_Application
 
                         case "7":
                             Console.Write("Enter Account Username: ");
-                            string transactionsAccountUser = Console.ReadLine()!.ToUpper();
+                            string transactionsAccountUser = Console.ReadLine()!;
                             Console.Write("Enter Password: ");
                             string transactionpassword = ReadPassword();
                             if (_loginManager.VerifyPassword(transactionsAccountUser, transactionpassword))
@@ -174,7 +176,7 @@ namespace Banking_Application
 
                         case "8":
                             Console.Write("Enter Account Username: ");
-                            string userDetailsAccountUser = Console.ReadLine()!.ToUpper();
+                            string userDetailsAccountUser = Console.ReadLine()!;
                             _loginManager.UserDetails(userDetailsAccountUser);
                             continue;
 
